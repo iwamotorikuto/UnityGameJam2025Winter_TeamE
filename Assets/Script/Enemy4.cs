@@ -35,7 +35,7 @@ public class Enemy4 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //当たったのがプレイヤー
-        if (other.gameObject.CompareTag("Bird4_Cyan"))
+        if (other.gameObject.CompareTag("Player"))
         {
 
             damage(10);
