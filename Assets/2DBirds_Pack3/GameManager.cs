@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("プレイヤー番号"), SerializeField]
+    private int currentPlayer = 1;
 
     [Header("プレイヤー１Pの登録"), SerializeField]
     private Object Player1P;
@@ -22,6 +24,10 @@ public class GameManager : MonoBehaviour
         return isPlayerTurn;
     }
 
+    public int GetCurrentPlayer()
+    {
+        return currentPlayer;
+    }
     void Start()
     {
         StartPlayerTurn();
@@ -46,6 +52,8 @@ public class GameManager : MonoBehaviour
         isPlayerTurn = false;
         Debug.Log("ターン終了！");
 
+        // プレイヤー交代
+        currentPlayer = (currentPlayer == 1) ? 2 : 1;
         // 今は敵ターンを作らないので、すぐ次のプレイヤーターンへ
         Invoke(nameof(StartPlayerTurn), 1.0f); // 1秒後に次のターン開始
     }
