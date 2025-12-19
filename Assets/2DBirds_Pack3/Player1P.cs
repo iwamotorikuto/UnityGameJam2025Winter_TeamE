@@ -78,9 +78,13 @@ public class Player1PScript : MonoBehaviour
             {
 
                 rb.velocity = Vector2.zero;
-                
+
+                // 攻撃したら GameManager に「ターン開始」を通知
+                FindObjectOfType<GameManager>().StartPlayerTurn();
+
+
             }
-            
+
         }
 
         //Y座標の境界確認
@@ -92,10 +96,14 @@ public class Player1PScript : MonoBehaviour
             if (rb.velocity.magnitude < 0.85f)
             {
                 rb.velocity = Vector2.zero;
-            }
-            
 
-            
+                // 攻撃したら GameManager に「ターン開始」を通知
+                FindObjectOfType<GameManager>().StartPlayerTurn();
+
+            }
+
+
+
         }
 
     }
