@@ -30,8 +30,6 @@ public class Player1PCollision : MonoBehaviour
         {
             // X方向とY方向を反転（減速付き）
             rb.velocity = new Vector2(rb.velocity.x / 1.5f, -rb.velocity.y / 1.5f);
-
-           
         }
 
         rbCollider.enabled = true;
