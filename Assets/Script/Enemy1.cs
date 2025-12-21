@@ -51,6 +51,23 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
+    // ダメージを受ける処理
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    // HP0のときの処理
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
     public void damage(int damage)
     {
         hp -= damage;
