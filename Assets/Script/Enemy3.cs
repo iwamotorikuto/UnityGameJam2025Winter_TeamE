@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy3 : MonoBehaviour
 {
+    public int attackInterval = 1;
     public Image healthImage;
     public int maxHealth = 100;
     private int currentHealth;
@@ -49,6 +50,18 @@ public class Enemy3 : MonoBehaviour
     void Die()
     {
         Destroy(gameObject); 
+    }
+
+    public void CheckAttackTurn(int currentTurn)
+    {
+        if (currentTurn % attackInterval == 0)
+        {
+            Attack();
+        }
+    }
+    void Attack()
+    {
+        Debug.Log("Enemyの攻撃！");
     }
 }
 

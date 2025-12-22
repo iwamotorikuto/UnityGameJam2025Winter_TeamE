@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy4 : MonoBehaviour
 {
+    public int attackInterval = 3;
     public Image healthImage;
     public int maxHealth = 100;
     private int currentHealth;
@@ -50,6 +51,18 @@ public class Enemy4 : MonoBehaviour
     void Die()
     {
         Destroy(gameObject); // HPバーが子なら一緒に消える
+    }
+
+    public void CheckAttackTurn(int currentTurn)
+    {
+        if (currentTurn % attackInterval == 0)
+        {
+            Attack();
+        }
+    }
+    void Attack()
+    {
+        Debug.Log("Enemyの攻撃！");
     }
 }
 
