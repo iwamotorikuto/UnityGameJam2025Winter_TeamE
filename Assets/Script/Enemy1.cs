@@ -5,52 +5,30 @@ public class Enemy1 : MonoBehaviour
 {
     public Image healthImage;
     public int maxHealth = 100;
-    public int currentHealth;
-    private Rigidbody rb;
+    private int currentHealth;
 
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+
     void Start()
     {
         currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    damage(10);
-        //}
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    heal(5);
-        //}
+        rb = GetComponent<Rigidbody2D>();
+        UpdateHPBar();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //当たったのがプレイヤー
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-
-            damage(10);
+            TakeDamage(10);
         }
     }
 
-    void Damage(int damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-        }
-    }
-
-    // ダメージを受ける処理
+   
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        UpdateHPBar();
 
         if (currentHealth <= 0)
         {
@@ -58,23 +36,16 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-    // HP0のときの処理
+    void UpdateHPBar()
+    {
+        if (healthImage != null)
+        {
+            healthImage.fillAmount = (float)currentHealth / maxHealth;
+        }
+    }
+
     void Die()
     {
-        Destroy(healthImage.gameObject);
-
-        Destroy(gameObject);
-    }
-
-    public void damage(int damage)
-    {
-        currentHealth -= damage;
-        healthImage.fillAmount = (float)currentHealth / maxHealth;
-    }
-
-    public void heal(int heal)
-    {
-        currentHealth += heal;
-        healthImage.fillAmount = (float)currentHealth / maxHealth;
+        Destroy(gameObject); 
     }
 }
