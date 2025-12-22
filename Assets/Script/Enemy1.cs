@@ -22,34 +22,51 @@ public class Enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            damage(10);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            heal(5);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    damage(10);
+        //}
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    heal(5);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //当たったのがプレイヤー
-        if(other.gameObject.CompareTag("Bird4_Cyan"))
+        if(other.gameObject.CompareTag("Player"))
         {
 
             damage(10);
         }
     }
 
-    //void Damage(int damage)
-    //{
-    //    hp -= damage;
-    //    if(hp <= 0)
-    //    {
-    //        hp = 0;
-    //    }
-    //}
+    void Damage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
+    }
+
+    // ダメージを受ける処理
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    // HP0のときの処理
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 
     public void damage(int damage)
     {
