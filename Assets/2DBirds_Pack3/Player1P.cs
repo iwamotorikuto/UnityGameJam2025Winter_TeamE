@@ -61,7 +61,9 @@ public class Player1P : MonoBehaviour
 
         // ドラッグ開始
         if (Input.GetMouseButtonDown(0))
+        {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
 
         // ドラッグ終了
         if (Input.GetMouseButtonUp(0))
