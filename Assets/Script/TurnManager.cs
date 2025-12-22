@@ -1,18 +1,39 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum TurnState
+{
+    PlayerTurn,
+    EnemyTurn,
+    //Busy
+}
 
 public class TurnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static TurnManager Instance;
+
+    public TurnState currentTurn;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        currentTurn = TurnState.PlayerTurn;
+    }
+
     void Update()
     {
-        
+
+    }
+
+
+    public void EndPlayerTurn()
+    {
+        currentTurn = TurnState.EnemyTurn;
     }
 }
+
+
