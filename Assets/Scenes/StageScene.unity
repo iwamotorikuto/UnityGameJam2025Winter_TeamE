@@ -1412,8 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 1697694879}
-  maxHealth: 100
-  currentHealth: 0
+  maxHealth: 50
 --- !u!1 &669717548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,8 +2888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 1833513569}
-  maxHealth: 150
-  currentHealth: 0
+  maxHealth: 100
 --- !u!1 &1426470277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,8 +3546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 1453118279}
-  maxHealth: 150
-  currentHealth: 0
+  maxHealth: 200
 --- !u!1 &1761731916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,11 +4027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5352801395161765866, guid: 0665326551f11704eae9f07d9a169e9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 5352801395161765866, guid: 0665326551f11704eae9f07d9a169e9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.22
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 5352801395161765866, guid: 0665326551f11704eae9f07d9a169e9b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4106,8 +4103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 1252936071}
-  maxHealth: 100
-  currentHealth: 0
+  maxHealth: 50
 --- !u!61 &1899854242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4303,23 +4299,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.283905
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.283905
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.75708
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.83
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 3.07
       objectReference: {fileID: 0}
     - target: {fileID: 3251214440278622260, guid: a1bf94042c3645b49945f59a2745e38b, type: 3}
       propertyPath: m_LocalPosition.z
