@@ -8,58 +8,45 @@ public class Enemy2 : MonoBehaviour
 {
     public Image healthImage;
     public int maxHealth = 100;
-    public int currentHealth;
-    private int hp;
-    private Rigidbody rb;
+    private int currentHealth;
 
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+
     void Start()
     {
-        hp = maxHealth;
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    damage(10);
-        //}
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    heal(5);
-        //}
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
+        UpdateHPBar();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //当たったのがプレイヤー
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
+            TakeDamage(10);
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        UpdateHPBar();
 
-            damage(10);
+        if (currentHealth <= 0)
+        {
+            Die();
         }
     }
 
-    void Damage(int damage)
+    void UpdateHPBar()
     {
-        hp -= damage;
-        if (hp <= 0)
+        if (healthImage != null)
         {
-            hp = 0;
+            healthImage.fillAmount = (float)currentHealth / maxHealth;
         }
     }
 
-    public void damage(int damage)
+    void Die()
     {
-        hp -= damage;
-        healthImage.fillAmount = (float)hp / maxHealth;
-    }
-
-    public void heal(int heal)
-    {
-        hp += heal;
-        healthImage.fillAmount = (float)hp / maxHealth;
+        Destroy(gameObject); 
     }
 }
