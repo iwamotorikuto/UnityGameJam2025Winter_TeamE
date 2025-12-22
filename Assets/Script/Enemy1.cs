@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy1 : MonoBehaviour
@@ -9,13 +6,12 @@ public class Enemy1 : MonoBehaviour
     public Image healthImage;
     public int maxHealth = 100;
     public int currentHealth;
-    private int hp;
     private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        hp = maxHealth;
+        currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -35,7 +31,7 @@ public class Enemy1 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //当たったのがプレイヤー
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
 
             damage(10);
@@ -44,10 +40,10 @@ public class Enemy1 : MonoBehaviour
 
     void Damage(int damage)
     {
-        hp -= damage;
-        if (hp <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            hp = 0;
+            currentHealth = 0;
         }
     }
 
@@ -65,18 +61,20 @@ public class Enemy1 : MonoBehaviour
     // HP0のときの処理
     void Die()
     {
+        Destroy(healthImage.gameObject);
+
         Destroy(gameObject);
     }
 
     public void damage(int damage)
     {
-        hp -= damage;
-        healthImage.fillAmount = (float)hp / maxHealth;
+        currentHealth -= damage;
+        healthImage.fillAmount = (float)currentHealth / maxHealth;
     }
 
     public void heal(int heal)
     {
-        hp += heal;
-        healthImage.fillAmount = (float)hp / maxHealth;
+        currentHealth += heal;
+        healthImage.fillAmount = (float)currentHealth / maxHealth;
     }
 }
